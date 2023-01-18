@@ -12,6 +12,19 @@
         </div>
     </div>
 
+    @if(Session::has('success'))
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-success alert-dismissible text-center">
+                <span>{{ Session::get('success') }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    @endif
+
     <div class="row">
         <div class="card p-4">
             <div class="card-header">
@@ -37,9 +50,9 @@
                             <td>{{$book->title}}</td>
                             <td>{{$book->description}}</td>
                             <td>{{$book->author}}</td>
-                            <td>{{$book->cover}}</td>
+                            <td><img src="storage/{{$book->cover}}" width="100"/></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-md text-white">Edit</a>
+                                <a href="{{url('/books/edit')}}/{{$book->id}}" class="btn btn-warning btn-md text-white">Edit</a>
                                 <a href="#" class="btn btn-danger btn-md">Hapus</a>
                             </td>
                         </tr>

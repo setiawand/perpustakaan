@@ -26,6 +26,8 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 //Route untuk buku
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/create', [BookController::class, 'create']);
+Route::post('/books/save', [BookController::class, 'save']);
+Route::get('/books/edit/{book}', [BookController::class, 'edit']);
 
 //Route untuk siswa
 Route::get('/students', [StudentController::class, 'index']);

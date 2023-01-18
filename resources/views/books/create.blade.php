@@ -11,23 +11,39 @@
                     <h2 class="text-center">Form Input Buku</h2>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="{{url('/books/save')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
-                            <label for="judul" class="form-label">Judul</label>
-                            <input name="judul" id="judul" type="text" class="form-control">
+                            <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
+                            <input name="title" id="title" type="text" class="form-control">
+                            @if ($errors->has('title'))
+                            <div class="alert alert-danger">
+                            <span class="text-danger">Judul harus diisi</span>
+                            </div>
+                            @endif
+
                         </div>
 
                         <div class="mb-3">
-                            <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea name="deskripsi" id="deskripsi" cols="10" rows="10"
+                            <label for="description" class="form-label">Deskripsi <span class="text-danger">*</span></label>
+                            <textarea name="description" id="description" cols="10" rows="10"
                                 class="form-control"></textarea>
+                            @if ($errors->has('description'))
+                            <div class="alert alert-danger">
+                            <span class="text-danger">Deskripsi harus diisi</span>
+                            </div>
+                            @endif
                         </div>
 
                         <div class="mb-3">
-                            <label for="author" class="form-label">Author</label>
+                            <label for="author" class="form-label">Author <span class="text-danger">*</span></label>
                             <input name="author" id="author" type="text" class="form-control">
+                            @if ($errors->has('author'))
+                            <div class="alert alert-danger">
+                            <span class="text-danger">Author harus diisi</span>
+                            </div>
+                            @endif
                         </div>
 
                         <div class="mb-3">
